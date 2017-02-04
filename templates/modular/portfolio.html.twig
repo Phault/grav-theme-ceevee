@@ -30,7 +30,9 @@
                 <span class="categories"><i class="fa fa-tag"></i>{{ item.tags }}</span>
             </div>
             <div class="link-box">
-                <a href="{{ item.details }}">Details</a>
+                {% for link in item.links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endfor %}
                 <a class="popup-modal-dismiss">Close</a>
             </div>
         </div>

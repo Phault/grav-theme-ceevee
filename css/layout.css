@@ -546,13 +546,13 @@ ul#nav li.current a { color: #F06000; }
 }
 .popup-modal .link-box a {
    color: #fff;
-	font: 11px/21px 'opensans-bold', sans-serif;
-	text-transform: uppercase;
+   font: 11px/21px 'opensans-bold', sans-serif;
+   text-transform: uppercase;
    letter-spacing: 3px;
    cursor: pointer;
+   margin-right: 24px;
 }
 .popup-modal a:hover {	color: #00CCCC; }
-.popup-modal a.popup-modal-dismiss { margin-left: 24px; }
 
 
 /* fadein/fadeout effect for modal popup
