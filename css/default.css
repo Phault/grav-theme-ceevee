@@ -752,6 +752,29 @@ properly.
    .row .offset-9    { margin-left: 0%; }
    .row .offset-10   { margin-left: 0%; }
    .row .offset-11   { margin-left: 0%; }
+   
+   .row .push-1      { left: auto;}
+   .row .pull-1      { right:auto; }
+   .row .push-2      { left: auto; }
+   .row .pull-2      { right: auto; }
+   .row .push-3      { left: auto; }
+   .row .pull-3      { right: auto;}
+   .row .push-4      { left: auto; }
+   .row .pull-4      { right: auto; }
+   .row .push-5      { left: auto; }
+   .row .pull-5      { right: auto; }
+   .row .push-6      { left: auto; }
+   .row .pull-6      { right: auto; }
+   .row .push-7      { left: auto; }
+   .row .pull-7      { right: auto; }
+   .row .push-8      { left: auto; }
+   .row .pull-8      { right: auto; }
+   .row .push-9      { left: auto; }
+   .row .pull-9      { right: auto; }
+   .row .push-10     { left: auto; }
+   .row .pull-10     { right: auto; }
+   .row .push-11     { left: auto; }
+   .row .pull-11     { right: auto; }
 }
 
 /* mobile narrow
