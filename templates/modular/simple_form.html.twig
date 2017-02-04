@@ -1,0 +1,16 @@
+<section id="contact">
+    <div class="row section-head">
+        <div class="two columns header-col push-2">
+            <h1><span>{{ page.header.title }}</span></h1>
+        </div>
+        <div class="six columns pull-2">
+            <p class="lead">{{ page.header.lead }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eight columns centered">
+            {{ page.content }}
+            {% include "forms/form.html.twig" %}
+        </div>
+    </div>
+</section>
