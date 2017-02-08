@@ -31,14 +31,15 @@
         {% endblock %}
         {% block javascripts %}
             {% do assets.add('jquery',101) %}
-            <script>window.jQuery || document.write('<script src="{{ url('theme://js/jquery-1.10.2.min.js') }}"><\/script>')</script>
-            <script type="text/javascript" src="{{ url('theme://js/jquery-migrate-1.2.1.min.js') }}"></script>
+            <script>window.jQuery || document.write('<script src="{{ url('theme://js/jquery-3.x.min.js') }}"><\/script>')</script>
             {% do assets.addJs('theme://js/jquery.flexslider.js') %}
             {% do assets.addJs('theme://js/waypoints.js') %}
             {% do assets.addJs('theme://js/jquery.fittext.js') %}
             {% do assets.addJs('theme://js/magnific-popup.js') %}
             {% do assets.addJs('theme://js/init.js') %}
+            {% if site.twitter %}
             {% include 'partials/twFetcher.html.twig' %}
+            {% endif %}
         {% endblock %}
         {{ assets.js() }}
     </body>
