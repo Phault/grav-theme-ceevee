@@ -430,6 +430,7 @@ ul#nav li.current a { color: #F06000; }
    overflow: hidden;
    position: relative;
    display: inline-block;
+   box-shadow: 0 0 5px #aaa;
 
    -webkit-transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
@@ -487,6 +488,10 @@ ul#nav li.current a { color: #F06000; }
 }
 .portfolio-item .item-wrap img {
    vertical-align: bottom;
+   transition: all 0.2s ease-in-out;
+}
+.portfolio-item:hover .item-wrap img {
+   transform: scale(1.3);
 }
 .portfolio-item .portfolio-item-meta { padding: 18px }
 .portfolio-item .portfolio-item-meta h5 {
@@ -514,7 +519,7 @@ ul#nav li.current a { color: #F06000; }
 
 /* popup modal */
 .popup-modal {
-	max-width: 550px;
+	max-width: 800px;
 	background: #fff;
 	position: relative;
 	margin: 0 auto;
@@ -700,8 +705,8 @@ call-to-action .button {
 #testimonials blockquote cite a:visited { color: #8B9798; border: none }
 
 #testimonials .owl-carousel .owl-dots {
-    text-align: left;
-}
+   text-align: left;
+} 
 
 /* ------------------------------------------------------------------ */
 /* h. Contact Section
