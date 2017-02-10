@@ -6,17 +6,13 @@
             </div>
             {{ page.content }}
             <div class="ten columns flex-container">
-                <div class="flexslider">
-                    <ul class="slides">
-                        {% for item in page.header.testimonials %}
-                        <li>
-                            <blockquote>
-                                <p>{{ item.content }}</p>
-                                <cite>{{ item.author }}</cite>
-                            </blockquote>
-                        </li>
-                        {% endfor %}
-                    </ul>
+                <div class="owl-carousel owl-theme">
+                    {% for item in page.header.testimonials %}
+                    <blockquote>
+                        <p>{{ item.content }}</p>
+                        <cite>{{ item.author }}</cite>
+                    </blockquote>
+                    {% endfor %}
                 </div>
             </div>
         </div>

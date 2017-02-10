@@ -120,19 +120,17 @@
 
 
 /*----------------------------------------------------*/
-/*	Flexslider
+/*	Owl Carousel
 /*----------------------------------------------------*/
-   $('.flexslider').flexslider({
-      namespace: "flex-",
-      controlsContainer: ".flex-container",
-      animation: 'slide',
-      controlNav: true,
-      directionNav: false,
-      smoothHeight: true,
-      slideshowSpeed: 7000,
-      animationSpeed: 600,
-      randomize: false,
-   });
 
+    $("#testimonials .owl-carousel").owlCarousel({
+       items: 1,
+       loop: true,
+       autoplay: true,
+       autoplayTimeout: 7000,
+       mouseDrag: false,
+       touchDrag: false,
+       autoHeight: true
+    });
 
 });

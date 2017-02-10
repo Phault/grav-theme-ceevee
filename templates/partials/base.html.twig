@@ -12,6 +12,8 @@
          {% block stylesheets %}
                 {% do assets.addCss('theme://css/default.css') %}
                 {% do assets.addCss('theme://css/layout.css') %}
+                {% do assets.addCss('theme://css/owl.carousel.min.css') %}
+                {% do assets.addCss('theme://css/owl.theme.default.css') %}
                 {% do assets.addCss('theme://css/media-queries.css') %}
                 {% do assets.addCss('theme://css/magnific-popup.css') %}
         {% endblock %}
@@ -34,7 +36,7 @@
             {% if not assets.exists('jquery') %}
             <script>window.jQuery || document.write('<script src="{{ url('theme://js/jquery-3.x.min.js') }}"><\/script>')</script>
             {% endif %}
-            {% do assets.addJs('theme://js/jquery.flexslider.js') %}
+            {% do assets.addJs('theme://js/owl.carousel.min.js') %}
             {% do assets.addJs('theme://js/waypoints.js') %}
             {% do assets.addJs('theme://js/jquery.fittext.js') %}
             {% do assets.addJs('theme://js/magnific-popup.js') %}
