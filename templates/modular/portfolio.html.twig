@@ -4,10 +4,11 @@
             {{ page.content }}
             <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
                 {% for item in page.header.portfolio %}
+                {% set images = (item.img is iterable) ? item.img : [item.img] %}
                 <div class="columns portfolio-item align-center">
                     <div class="item-wrap">
                         <a href="#modal-{{ loop.index }}" title="">
-                            {{ page.media[item.img].cropZoom(215, 215).html() }}
+                            {{ page.media[images[0]].cropZoom(215, 215).html() }}
                             <div class="overlay">
                                 <div class="portfolio-item-meta">
                                     <h5>{{ item.title }}</h5>
@@ -23,7 +24,16 @@
         </div>
         {% for item in page.header.portfolio %}
         <div id="modal-{{ loop.index }}" class="popup-modal mfp-hide">
-            <img class="scale-with-grid" src="{{ page.media[item.img].url }}" alt="" />
+            {% set images = (item.img is iterable) ? item.img : [item.img] %}
+            {% if images|length > 1 %}
+            <div class="owl-carousel owl-theme">
+                {% for img in images %}
+                    <img src="{{ page.media[img].url }}" alt="" />
+                {% endfor %}
+            </div>
+            {% elseif not images|empty %}
+                <img src="{{ page.media[images[0]].url }}" alt="" />
+            {% endif %}
             <div class="description-box">
                 <h4>{{ item.title }}</h4>
                 <p>{{ item.content }}.</p>

@@ -42,11 +42,12 @@
 
 	sections.waypoint({
 
-      handler: function(event, direction) {
+      handler: function(direction) {
 
 		   var active_section;
 
-			active_section = $(this);
+			active_section = $(this.element);
+
 			if (direction === "up") active_section = active_section.prev();
 
 			var active_link = $('#nav-wrap a[href="#' + active_section.attr("id") + '"]');
@@ -105,11 +106,20 @@
     $('.item-wrap a').magnificPopup({
 
        type:'inline',
-       fixedContentPos: false,
+       fixedContentPos: true,
        removalDelay: 200,
        showCloseBtn: false,
-       mainClass: 'mfp-fade'
-
+       mainClass: 'mfp-fade',
+       callbacks: {
+          open: function() {
+             var carousel = $('.mfp-content .owl-carousel');
+             carousel.trigger('refresh.owl.carousel');
+             carousel.trigger('play.owl.autoplay');
+          },
+          beforeClose: function() {
+             $('.mfp-content .owl-carousel').trigger('stop.owl.autoplay');
+          }
+       }
     });
 
     $(document).on('click', '.popup-modal-dismiss', function (e) {
@@ -119,62 +129,26 @@
 
 
 /*----------------------------------------------------*/
-/*	Flexslider
+/*	Owl Carousel
 /*----------------------------------------------------*/
-   $('.flexslider').flexslider({
-      namespace: "flex-",
-      controlsContainer: ".flex-container",
-      animation: 'slide',
-      controlNav: true,
-      directionNav: false,
-      smoothHeight: true,
-      slideshowSpeed: 7000,
-      animationSpeed: 600,
-      randomize: false,
-   });
+    var portfolioCarousels = $(".popup-modal .owl-carousel");
 
-/*----------------------------------------------------*/
-/*	contact form
-------------------------------------------------------*/
+    portfolioCarousels.owlCarousel({
+       items: 1,
+       loop: true,
+       autoplay: true,
+       autoplayTimeout: 5000
+    });
+    portfolioCarousels.trigger('stop.owl.autoplay');
 
-   $('form#contactForm button.submit').click(function() {
-
-      $('#image-loader').fadeIn();
-
-      var contactName = $('#contactForm #contactName').val();
-      var contactEmail = $('#contactForm #contactEmail').val();
-      var contactSubject = $('#contactForm #contactSubject').val();
-      var contactMessage = $('#contactForm #contactMessage').val();
-
-      var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
-               '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
-
-      $.ajax({
-
-	      type: "POST",
-	      url: "inc/sendEmail.php",
-	      data: data,
-	      success: function(msg) {
-
-            // Message was sent
-            if (msg == 'OK') {
-               $('#image-loader').fadeOut();
-               $('#message-warning').hide();
-               $('#contactForm').fadeOut();
-               $('#message-success').fadeIn();
-            }
-            // There was an error
-            else {
-               $('#image-loader').fadeOut();
-               $('#message-warning').html(msg);
-	            $('#message-warning').fadeIn();
-            }
-
-	      }
-
-      });
-      return false;
-   });
-
+    $("#testimonials .owl-carousel").owlCarousel({
+       items: 1,
+       loop: true,
+       autoplay: true,
+       autoplayTimeout: 7000,
+       mouseDrag: false,
+       touchDrag: false,
+       autoHeight: true
+    });
 
 });
