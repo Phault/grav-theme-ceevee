@@ -636,8 +636,9 @@ call-to-action .button {
    color: #0D0D0D;
 }
 #call-to-action p span {
-	font-family: bold sans-serif;
-	color: #D8D8D8;
+  font-family: sans-serif;
+  font-weight: bold;
+  color: #D8D8D8;
 }
 
 /* ------------------------------------------------------------------
