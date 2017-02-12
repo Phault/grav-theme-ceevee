@@ -1,14 +1,12 @@
 {% extends 'partials/base.html.twig' %}
 {% block content %}
-<section class="intro text-center section-padding" id="introduction">
-  <div class="container">
+<section id="about">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2 wp1">
-        <h1 class="arrow">Error {{ page.header.http_response_code }}</h1>
-        {{ page.content }}
-      </div>
+        <div class="nine columns main-col">
+	        <h2>Error {{ page.header.http_response_code }}</h2>
+	        {{ page.content }}
+            Back to <a href="{{ base_url_absolute }}">homepage</a>.
+        </div>
     </div>
-  </div>
 </section>
-
 {% endblock %}
