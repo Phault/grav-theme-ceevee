@@ -90,29 +90,43 @@
 /*	Modal Popup
 ------------------------------------------------------*/
 
-    $('.item-wrap a').magnificPopup({
+  function attemptToCloseDialog() {
+     if ($.magnificPopup.instance)
+        $.magnificPopup.close();
+  }
 
-       type:'inline',
-       fixedContentPos: true,
-       removalDelay: 200,
-       showCloseBtn: false,
-       mainClass: 'mfp-fade',
-       callbacks: {
-          open: function() {
-             var carousel = $('.mfp-content .owl-carousel');
-             carousel.trigger('refresh.owl.carousel');
-             carousel.trigger('play.owl.autoplay');
-          },
-          beforeClose: function() {
-             $('.mfp-content .owl-carousel').trigger('stop.owl.autoplay');
-          }
-       }
-    });
+  $('.item-wrap a').magnificPopup({
 
-    $(document).on('click', '.popup-modal-dismiss', function (e) {
-    		e.preventDefault();
-    		$.magnificPopup.close();
-    });
+     type:'inline',
+     fixedContentPos: true,
+     removalDelay: 200,
+     showCloseBtn: false,
+     mainClass: 'mfp-fade',
+     callbacks: {
+        open: function() {
+           history.pushState({ url: document.location.href }, null, "?modal");
+
+           $(window).bind('popstate', attemptToCloseDialog);
+
+           var carousel = $('.mfp-content .owl-carousel');
+           carousel.trigger('refresh.owl.carousel');
+           carousel.trigger('play.owl.autoplay');
+        },
+        beforeClose: function() {
+           $('.mfp-content .owl-carousel').trigger('stop.owl.autoplay');
+        },
+        close: function() {
+           $(window).unbind('popstate', attemptToCloseDialog);
+           if (history.state)
+               history.replaceState(null, null, history.state.url);
+        }
+     }
+  });
+
+  $(document).on('click', '.popup-modal-dismiss', function (e) {
+  		e.preventDefault();
+  		$.magnificPopup.close();
+  });
 
 
 /*----------------------------------------------------*/
