@@ -559,6 +559,9 @@ ul#nav li.current a { color: #F06000; }
    cursor: pointer;
    margin-right: 24px;
 }
+.popup-modal .link-box a:last-child {
+   margin-right: 0;
+}
 .popup-modal a:hover {	color: #00CCCC; }
 
 
