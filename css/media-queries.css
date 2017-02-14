@@ -257,6 +257,10 @@
    #portfolio-wrapper .columns { margin-bottom: 40px; }
    .popup-modal {	max-width: 85%; }
 
+   .popup-modal .description-box {
+      padding: 18px;
+   }
+
 
    /* Testimonials Section
    ----------------------------------------------------------------------- */
